@@ -1,9 +1,16 @@
-[<img src="https://raw.githubusercontent.com/mineiros-io/brand/3bffd30e8bdbbde32c143e2650b2faa55f1df3ea/mineiros-primary-logo.svg" width="400"/>](https://www.mineiros.io/?ref=pre-commit-hooks)
+<p align="center">
+  <picture width="160px" align="center">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/terramate-io/brand/5a799813d429116741243b9b06a9f034a3991bf3/darkmode/stamp.svg">
+      <img alt="Terramate" src="https://raw.githubusercontent.com/terramate-io/brand/5a799813d429116741243b9b06a9f034a3991bf3/whitemode/stamp.svg" width="160px" align="center">
+    </picture>
+  <h1 align="center">Terramate</h1>
+</p>
+<br/>
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/pre-commit-hooks.svg?label=latest&sort=semver)](https://github.com/mineiros-io/pre-commit-hooks/releases)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/terramate-io/pre-commit-hooks.svg?label=latest&sort=semver)](https://github.com/terramate-io/pre-commit-hooks/releases)
 [![license](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Terraform Version](https://img.shields.io/badge/terraform-~%3E%200.12.20-623CE4.svg)](https://github.com/hashicorp/terraform/releases)
-[<img src="https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack">](https://join.slack.com/t/mineiros-community/shared_invite/zt-ehidestg-aLGoIENLVs6tvwJ11w9WGg)
+[<img src="https://img.shields.io/discord/1088753599951151154?label=Discord&logo=discord&logoColor=white">](https://terramate.io/discord)
 
 # pre-commit-hooks
 
@@ -25,7 +32,7 @@ This repository is a collection of Git hooks to be used with the
   - [Add Custom Hooks](#add-custom-hooks)
 - [Module Versioning](#module-versioning)
   - [Backwards compatibility in `0.0.z` and `0.y.z` version](#backwards-compatibility-in-00z-and-0yz-version)
-- [About Mineiros](#about-mineiros)
+- [About Terramate](#about-terramate)
 - [Reporting Issues](#reporting-issues)
 - [Contributing](#contributing)
 - [Makefile Targets](#makefile-targets)
@@ -50,7 +57,7 @@ Currently, the following hooks are supported:
 - [golangci-lint](https://github.com/golangci/golangci-lint): GolangCI-Lint is a linters aggregator.
   It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
   minimum number of false positives. An example configuration can be found in
-  [.golangci.example.yml](https://github.com/mineiros-io/pre-commit-hooks/blob/master/.golangci.example.yml).
+  [.golangci.example.yml](https://github.com/terramate-io/pre-commit-hooks/blob/master/.golangci.example.yml).
 
 #### The following hooks can be configured through golangci-lint and are therefore redundant when golangci-lint is being used
 
@@ -61,7 +68,7 @@ Currently, the following hooks are supported:
 
 ### GNU Make
 
-- [phony-targets](https://github.com/mineiros-io/pre-commit-hooks/blob/master/pre_commit_hooks/make/phony-targets.sh):
+- [phony-targets](https://github.com/terramate-io/pre-commit-hooks/blob/master/pre_commit_hooks/make/phony-targets.sh):
   This hook validates if targets that are marked as `PHONY` actually exist.
 
 ### Markdown
@@ -87,8 +94,8 @@ Currently, the following hooks are supported:
 
 ### Terramate
 
-- [terramate-fmt](https://github.com/mineiros-io/terramate): The terramate generate command formats code in Terramate configuration files.
-- [terramate-generate](https://github.com/mineiros-io/terramate): The terramate generate command generates code from Terramate configuration files.
+- [terramate-fmt](https://github.com/terramate-io/terramate): The terramate generate command formats code in Terramate configuration files.
+- [terramate-generate](https://github.com/terramate-io/terramate): The terramate generate command generates code from Terramate configuration files.
 
 ## Installation & Dependencies
 
@@ -114,8 +121,8 @@ Please see the [documentation](https://pre-commit.com/#usage) for further inform
 
 ```yaml
 repos:
-  - repo: https://github.com/mineiros-io/pre-commit-hooks
-    rev: <VERSION> # Check for the latest version: https://github.com/mineiros-io/pre-commit-hooks/releases
+  - repo: https://github.com/terramate-io/pre-commit-hooks
+    rev: <VERSION> # Check for the latest version: https://github.com/terramate-io/pre-commit-hooks/releases
     hooks:
       - id: terraform-fmt
       - id: terraform-validate
@@ -132,7 +139,7 @@ repos:
 
       # The following hooks are redundant when golangci-lint is being. Our recommendation is to use golangci-lint
       # as the main linter for go since it enables you to run all available linters in parallel.
-      # For details please see the example configuration https://github.com/mineiros-io/pre-commit-hooks/blob/master/.golangci.example.yml
+      # For details please see the example configuration https://github.com/terramate-io/pre-commit-hooks/blob/master/.golangci.example.yml
       # - id: gofmt
       # - id: goimports
 ```
@@ -190,37 +197,42 @@ Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following co
 - In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is
   increased. (Pre-release)
 
-## About Mineiros
+## About Terramate
 
-Mineiros is a [DevOps as a Service](https://mineiros.io/?ref=pre-commit-hooks) company based in Berlin, Germany. We offer commercial support
-for all of our projects and encourage you to reach out if you have any questions or need help.
-Feel free to send us an email at [hello@mineiros.io](mailto:hello@mineiros.io).
+Terramate CLI is an open-source orchestration and code generation engine that allows Infrastructure as Code (IaC) such
+as Terraform, OpenTofu, Terragrunt and Kubernetes to scale.
 
-We can also help you with:
+Terramate CLI can optionally be paired with [Terramate Cloud](https://terramate.io), a fully managed SaaS service that
+adds additional features to manage and observe all your infrastructure managed with IaC in one or multiple repositories.
 
-- Terraform modules for all types of infrastructure such as VPCs, Docker clusters, databases, logging and monitoring, CI, etc.
-- Consulting & training on AWS, Terraform and DevOps
+With Terramate, you can:
+
+1. Break up large, monolithic state files into multiple smaller stacks to limit blast radius, reduce runtimes and unlock better collaboration.
+2. Reduce code duplication by programmatically generating native Terraform backend and provider configurations or any other arbitrary files using the Terramate compiler.
+3. Using a graph-based orchestration engine, orchestrate any command such as `terraform apply` in stacks. Only deploy stacks that contain changes using change detection built on top of Git.
+4. Automate your IaC using pull requests and GitOps workflows that turn your existing CI/CD, such as GitHub Actions, GitLab CI/CD, BitBucket Pipelines, Azure DevOps, etc, into infrastructure vending machines.
+5. Use Terramate Cloud to add observability, drift detection, asset management, misconfiguration detection, incident management, developer self-service with scaffolding, and Slack notifications.
 
 ## Reporting Issues
 
-We use GitHub [Issues](https://github.com/mineiros-io/pre-commit-hooks/issues)
+We use GitHub [Issues](https://github.com/terramate-io/pre-commit-hooks/issues)
 to track community reported issues and missing features.
 
 ## Contributing
 
 Contributions are always encouraged and welcome! For the process of accepting changes, we use
-[Pull Requests](https://github.com/mineiros-io/pre-commit-hooks/pulls). If you'd like more information, please
-see our [Contribution Guidelines](https://github.com/mineiros-io/pre-commit-hooks/blob/master/CONTRIBUTING.md).
+[Pull Requests](https://github.com/terramate-io/pre-commit-hooks/pulls). If you'd like more information, please
+see our [Contribution Guidelines](https://github.com/terramate-io/pre-commit-hooks/blob/master/CONTRIBUTING.md).
 
 ## Makefile Targets
 
 This repository comes with a handy
-[Makefile](https://github.com/mineiros-io/pre-commit-hooks/blob/master/Makefile).
+[Makefile](https://github.com/terramate-io/pre-commit-hooks/blob/master/Makefile).
 Run `make help` to see details on each available target.
 
 ## License
 
 This module is licensed under the Apache License Version 2.0, January 2004.
-Please see [LICENSE](https://github.com/mineiros-io/pre-commit-hooks/blob/master/LICENSE) for full details.
+Please see [LICENSE](https://github.com/terramate-io/pre-commit-hooks/blob/master/LICENSE) for full details.
 
-Copyright &copy; 2020 Mineiros GmbH
+Copyright &copy; 2025 Terramate GmbH
